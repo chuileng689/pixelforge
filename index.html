@@ -108,7 +108,7 @@ nav a:hover{color:var(--ink);background:var(--bg3)}
 .ws-layout{display:grid;grid-template-columns:1fr 300px;gap:16px}
 
 /* UPLOAD */
-.upbox{background:var(--bg2);border:2px dashed var(--border2);border-radius:var(--r2);padding:44px 16px;text-align:center;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:200px}
+.upbox{background:var(--bg2);border:2px dashed var(--border2);border-radius:var(--r2);padding:44px 16px;text-align:center;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:200px;-webkit-tap-highlight-color:rgba(255,77,46,.15);touch-action:manipulation;user-select:none}
 .upbox:hover,.upbox.drag{border-color:var(--red);background:var(--al)}
 .up-ico{font-size:40px;opacity:.5}.up-h{font-size:14px;font-weight:600}.up-s{font-size:11px;color:var(--ink3)}
 .up-btn{background:var(--red);color:#fff;border:none;border-radius:var(--r);padding:8px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:3px}
@@ -217,7 +217,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
 .ws-layout[style*="1fr"] .sp{max-width:520px}
 .ws-layout[style*="1fr"] .result-card{max-width:520px;margin-top:14px}
 
-@media(max-width:860px){.ws-layout{grid-template-columns:1fr}}
+@media(max-width:860px){
+  .ws-layout{grid-template-columns:1fr}
+  .ws-layout>div:last-child{order:-1}
+}
 @media(max-width:640px){
   .tools-grid{grid-template-columns:1fr 1fr}
   nav{display:none}
@@ -440,7 +443,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
   </div>
   <div class="ws-layout">
     <div>
-      <label for="fi" class="upbox" id="dropzone" role="button" aria-label="Upload image"
+      <div class="upbox" id="dropzone" role="button" aria-label="Upload image" tabindex="0"
+        onclick="document.getElementById('fi').click()"
+        onkeydown="if(event.key==='Enter'||event.key===' ')document.getElementById('fi').click()"
         ondragover="event.preventDefault();this.classList.add('drag')"
         ondragleave="this.classList.remove('drag')"
         ondrop="handleDrop(event)">
@@ -449,8 +454,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
         <div class="up-s" data-i18n="up_or">or click to browse files</div>
         <div class="up-s" style="font-size:10px">JPG · PNG · WebP · AVIF · GIF · BMP — max 50MB</div>
         <span class="up-btn" data-i18n="up_btn">Choose File</span>
-      </label>
-      <input type="file" id="fi" accept="image/*" style="display:none" onchange="loadFile(this.files[0])">
+      </div>
+      <input type="file" id="fi" accept="image/*,image/jpeg,image/png,image/webp,image/gif,image/bmp,image/avif" style="display:none;position:absolute;width:1px;height:1px;opacity:0" onchange="loadFile(this.files[0])">
 
       <div class="prev-card" id="prevCard">
         <div class="prev-img-area"><img id="prevImg" src="" alt=""></div>
