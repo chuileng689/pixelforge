@@ -14,7 +14,6 @@
 <link rel="canonical" href="https://pixelforge.app/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff4d2e'/><text y='.9em' font-size='70' x='15'>⚡</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7236221813043804" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 :root{
@@ -108,7 +107,7 @@ nav a:hover{color:var(--ink);background:var(--bg3)}
 .ws-layout{display:grid;grid-template-columns:1fr 300px;gap:16px}
 
 /* UPLOAD */
-.upbox{background:var(--bg2);border:2px dashed var(--border2);border-radius:var(--r2);padding:44px 16px;text-align:center;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:200px;-webkit-tap-highlight-color:rgba(255,77,46,.15);touch-action:manipulation}
+.upbox{background:var(--bg2);border:2px dashed var(--border2);border-radius:var(--r2);padding:44px 16px;text-align:center;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:200px}
 .upbox:hover,.upbox.drag{border-color:var(--red);background:var(--al)}
 .up-ico{font-size:40px;opacity:.5}.up-h{font-size:14px;font-weight:600}.up-s{font-size:11px;color:var(--ink3)}
 .up-btn{background:var(--red);color:#fff;border:none;border-radius:var(--r);padding:8px 20px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:3px}
@@ -186,13 +185,31 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
 /* MODAL */
 #pageModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:500;align-items:center;justify-content:center;padding:16px}
 #pageModal.open{display:flex}
-.modal-box{background:var(--bg2);border-radius:16px;max-width:680px;width:100%;max-height:86vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.2)}
-.modal-hd{padding:18px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--bg2);border-radius:16px 16px 0 0}
+.modal-box{background:#fff;border-radius:16px;max-width:680px;width:100%;max-height:86vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.modal-hd{padding:18px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;border-radius:16px 16px 0 0}
 .modal-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800}
 .modal-close{background:none;border:none;font-size:24px;cursor:pointer;color:var(--ink3);padding:0 4px;line-height:1}
 .modal-body{padding:24px}
 
 /* TOAST */
+/* DOWNLOAD AD MODAL */
+#dlAdModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:600;align-items:center;justify-content:center;padding:16px}
+#dlAdModal.open{display:flex}
+.dlad-box{background:#fff;border-radius:16px;width:100%;max-width:480px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3);text-align:center}
+.dlad-top{background:linear-gradient(135deg,#ff4d2e,#ff8c00);padding:20px;color:#fff}
+.dlad-top h3{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:4px}
+.dlad-top p{font-size:13px;opacity:.9}
+.dlad-ad{padding:20px;min-height:120px;background:#f8f7f4;border-top:1px solid #e8e4df;border-bottom:1px solid #e8e4df;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.dlad-ad-lbl{font-size:10px;color:#8a8680;letter-spacing:.08em;text-transform:uppercase}
+.dlad-ad-ph{width:100%;max-width:336px;height:90px;background:#e8e4df;border:1px dashed #d4cfc9;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#8a8680}
+.dlad-bottom{padding:20px}
+.dlad-counter{font-size:13px;color:#8a8680;margin-bottom:12px}
+.dlad-counter span{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:#ff4d2e;display:block;margin-bottom:4px}
+.dlad-skip{width:100%;background:#ff4d2e;color:#fff;border:none;border-radius:10px;padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s}
+.dlad-skip:disabled{background:#d4cfc9;color:#8a8680;cursor:not-allowed}
+.dlad-skip:not(:disabled):hover{background:#ff6b4a;transform:translateY(-1px)}
+.dlad-cancel{display:block;margin-top:10px;font-size:12px;color:#8a8680;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:inherit;width:100%}
+
 .toast{position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--ink);color:#fff;border-radius:var(--r);padding:10px 16px;font-size:13px;display:flex;align-items:center;gap:7px;transform:translateY(60px);opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
 .toast.show{transform:translateY(0);opacity:1}
 
@@ -316,13 +333,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
 
 <div class="adbar">
   <span class="adlbl">Ad</span>
-  <!-- ADSENSE 728x90 顶部横幅 — 批准后取消注释，填入 data-ad-client 和 data-ad-slot
-  <ins class="adsbygoogle"
-    style="display:inline-block;width:728px;height:90px"
-    data-ad-client="ca-pub-XXXXXXXXXX"
-    data-ad-slot="XXXXXXXXXX"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  -->
+  <div class="adph">Google AdSense 728×90 — Add your Publisher ID to display ads</div>
 </div>
 
 <!-- HOME -->
@@ -362,75 +373,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
     <div class="sec-title" data-i18n="all_tools">All Tools</div>
     <div class="tools-grid" id="tgrid"></div>
   </div>
-
-  <!-- SEO / AdSense content section -->
-  <div style="padding:0 max(16px,calc(50% - 720px)) 60px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:48px">
-      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:22px">
-        <div style="font-size:28px;margin-bottom:10px">🔒</div>
-        <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin-bottom:8px">100% Private — Files Never Leave Your Browser</div>
-        <p style="font-size:13px;color:var(--ink2);line-height:1.7">Every tool on PixelForge runs entirely in your web browser using JavaScript. Your images are never uploaded to any server. This means your photos, documents, and personal files stay completely private on your device at all times.</p>
-      </div>
-      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:22px">
-        <div style="font-size:28px;margin-bottom:10px">⚡</div>
-        <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin-bottom:8px">Fast, Free & No Sign-Up Required</div>
-        <p style="font-size:13px;color:var(--ink2);line-height:1.7">All 30 tools are completely free to use with no account needed. There are no file limits hidden behind a paywall. Just open the tool, upload your image, and download the result in seconds — no waiting, no registration.</p>
-      </div>
-      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:22px">
-        <div style="font-size:28px;margin-bottom:10px">🌐</div>
-        <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;margin-bottom:8px">Works on Any Device, Any Browser</div>
-        <p style="font-size:13px;color:var(--ink2);line-height:1.7">PixelForge works on Windows, Mac, Linux, iOS, and Android. No software installation required. Open it in Chrome, Firefox, Safari, or Edge and start editing images instantly from any device.</p>
-      </div>
-    </div>
-
-    <div style="margin-bottom:48px">
-      <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px"><span style="width:4px;height:18px;background:var(--red);border-radius:2px;display:inline-block"></span>How to Use PixelForge</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:16px;display:flex;gap:12px;align-items:flex-start">
-          <div style="width:32px;height:32px;background:var(--al);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:var(--red);flex-shrink:0">1</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Choose a Tool</div><div style="font-size:12px;color:var(--ink2);line-height:1.6">Pick from 30 free image tools on the home page — compressor, resizer, converter, and more.</div></div>
-        </div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:16px;display:flex;gap:12px;align-items:flex-start">
-          <div style="width:32px;height:32px;background:var(--al);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:var(--red);flex-shrink:0">2</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Upload Your Image</div><div style="font-size:12px;color:var(--ink2);line-height:1.6">Drag and drop your file or click to browse. Supports JPG, PNG, WebP, GIF, BMP up to 50MB.</div></div>
-        </div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:16px;display:flex;gap:12px;align-items:flex-start">
-          <div style="width:32px;height:32px;background:var(--al);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:var(--red);flex-shrink:0">3</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Adjust Settings</div><div style="font-size:12px;color:var(--ink2);line-height:1.6">Customise quality, dimensions, format, effects and more using the settings panel.</div></div>
-        </div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:16px;display:flex;gap:12px;align-items:flex-start">
-          <div style="width:32px;height:32px;background:var(--al);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;color:var(--red);flex-shrink:0">4</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:4px">Download Result</div><div style="font-size:12px;color:var(--ink2);line-height:1.6">Click Download to save the processed file directly to your device. Fast and free, always.</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:28px">
-      <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:16px">Frequently Asked Questions</div>
-      <div style="display:grid;gap:14px">
-        <div style="border-bottom:1px solid var(--border);padding-bottom:14px">
-          <div style="font-size:13px;font-weight:600;margin-bottom:5px">Is PixelForge really free?</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.7">Yes, all 30 tools are completely free to use with no hidden fees, no subscription, and no account required. The site is supported by non-intrusive advertising.</div>
-        </div>
-        <div style="border-bottom:1px solid var(--border);padding-bottom:14px">
-          <div style="font-size:13px;font-weight:600;margin-bottom:5px">Are my images safe and private?</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.7">Absolutely. All image processing happens directly in your browser using JavaScript. Your files are never sent to any server and never stored anywhere online. We have no access to your images.</div>
-        </div>
-        <div style="border-bottom:1px solid var(--border);padding-bottom:14px">
-          <div style="font-size:13px;font-weight:600;margin-bottom:5px">What image formats are supported?</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.7">PixelForge supports JPG, JPEG, PNG, WebP, AVIF, GIF, BMP, and SVG for most tools. Maximum file size is 50MB per image. Output formats include JPG, PNG, WebP, GIF, and PDF.</div>
-        </div>
-        <div style="border-bottom:1px solid var(--border);padding-bottom:14px">
-          <div style="font-size:13px;font-weight:600;margin-bottom:5px">How much can I compress an image?</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.7">Our Image Compressor can reduce file size by up to 90% depending on the original image and your chosen quality setting. WebP format generally produces the smallest file sizes with minimal quality loss.</div>
-        </div>
-        <div>
-          <div style="font-size:13px;font-weight:600;margin-bottom:5px">Does it work on mobile?</div>
-          <div style="font-size:13px;color:var(--ink2);line-height:1.7">Yes! PixelForge is fully responsive and works on smartphones and tablets. You can compress, resize, crop, and convert images directly from your iPhone, Android, or iPad browser.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
 <!-- WORKSPACE -->
 <div id="ws">
@@ -440,7 +383,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
   </div>
   <div class="ws-layout">
     <div>
-      <label for="fi" class="upbox" id="dropzone" role="button" aria-label="Upload image"
+      <div class="upbox" id="dropzone" role="button" aria-label="Upload image"
+        onclick="document.getElementById('fi').click()"
         ondragover="event.preventDefault();this.classList.add('drag')"
         ondragleave="this.classList.remove('drag')"
         ondrop="handleDrop(event)">
@@ -448,8 +392,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
         <div class="up-h" data-i18n="up_drop">Drop your image here</div>
         <div class="up-s" data-i18n="up_or">or click to browse files</div>
         <div class="up-s" style="font-size:10px">JPG · PNG · WebP · AVIF · GIF · BMP — max 50MB</div>
-        <span class="up-btn" data-i18n="up_btn">Choose File</span>
-      </label>
+        <button class="up-btn" onclick="event.stopPropagation();document.getElementById('fi').click()" data-i18n="up_btn">Choose File</button>
+      </div>
       <input type="file" id="fi" accept="image/*" style="display:none" onchange="loadFile(this.files[0])">
 
       <div class="prev-card" id="prevCard">
@@ -496,13 +440,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
       <div class="sp" id="sp"></div>
       <div class="ad-side">
         <div class="ad-side-lbl">Advertisement</div>
-        <!-- ADSENSE 300x250 侧边方块 — 批准后取消注释，填入 data-ad-client 和 data-ad-slot
-        <ins class="adsbygoogle"
-          style="display:inline-block;width:300px;height:250px"
-          data-ad-client="ca-pub-XXXXXXXXXX"
-          data-ad-slot="XXXXXXXXXX"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        -->
+        <div class="ad-side-ph">300×250<br>AdSense Ad Unit</div>
       </div>
     </div>
   </div>
@@ -565,20 +503,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
 <div class="toast" id="toast"></div>
 <canvas id="cvs" style="display:none"></canvas>
 <button id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
-<script>
-// Mobile: ensure tapping the upload label always opens file picker
-document.addEventListener('DOMContentLoaded', function() {
-  var dz = document.getElementById('dropzone');
-  var fi = document.getElementById('fi');
-  if (dz && fi) {
-    dz.addEventListener('click', function(e) {
-      // Prevent double-trigger on desktop (label already handles it)
-      // Only needed when label's for= doesn't work (some mobile browsers)
-      fi.click();
-    }, false);
-  }
-});
-</script>
 
 <script>
 // ============================================================
@@ -636,10 +560,6 @@ var LANGS = {
     tool_border:'添加边框', tool_meme:'表情包生成器', tool_collage:'拼图合并',
     tool_pdfsplit:'PDF分割', tool_pdfmerge:'合并PDF', tool_gif:'GIF制作器',
     tool_pixelate:'像素化/模糊', tool_imginfo:'图片信息',
-    tool_colorpick:'颜色提取器', tool_circlecrop:'圆形裁剪', tool_compare:'前后对比',
-    tool_sketch:'素描效果', tool_filmgrain:'胶片颗粒', tool_poster:'海报制作',
-    tool_qrcode:'二维码生成', tool_svgpng:'SVG转PNG', tool_batch:'批量压缩',
-    tool_exifstrip:'去除隐私信息', tool_base64:'图片转Base64', tool_gradient:'渐变背景',
   },
   ms: {
     nav_home:'Utama', nav_compress:'Mampat', nav_resize:'Ubah Saiz', nav_convert:'Tukar Format',
@@ -666,10 +586,6 @@ var LANGS = {
     tool_border:'Tambah Bingkai', tool_meme:'Jana Meme', tool_collage:'Gabung / Kolaj',
     tool_pdfsplit:'Pisah PDF', tool_pdfmerge:'Gabung PDF', tool_gif:'Buat GIF',
     tool_pixelate:'Pikselkan / Kabur', tool_imginfo:'Info Imej',
-    tool_colorpick:'Ekstrak Warna', tool_circlecrop:'Potong Bulat', tool_compare:'Sebelum / Selepas',
-    tool_sketch:'Kesan Lakaran', tool_filmgrain:'Bijian Filem', tool_poster:'Buat Poster',
-    tool_qrcode:'Jana Kod QR', tool_svgpng:'SVG ke PNG', tool_batch:'Mampatkan Kelompok',
-    tool_exifstrip:'Buang Metadata', tool_base64:'Imej ke Base64', tool_gradient:'Latar Kecerunan',
   }
 };
 
@@ -2220,13 +2136,10 @@ function runMerge() {
 }
 
 // Show result
-var _prevObjUrl = null;
 function showResult(blob, W, H, isPDF) {
   var rImg = document.getElementById('resultImg');
   if (!isPDF) {
-    if (_prevObjUrl) { URL.revokeObjectURL(_prevObjUrl); }
-    _prevObjUrl = URL.createObjectURL(blob);
-    rImg.src = _prevObjUrl;
+    rImg.src = URL.createObjectURL(blob);
     rImg.style.display = 'block';
   } else {
     rImg.style.display = 'none';
@@ -2271,14 +2184,13 @@ function showDownloadAd() {
   var btn = document.getElementById('dlAdBtn');
   var timerEl = document.getElementById('dlAdTimer');
   if (!overlay || !btn || !timerEl) return;
-  // Show ad overlay immediately — user sees ad right away
   btn.disabled = true;
   btn.innerHTML = '⬇ Download Now';
-  timerEl.textContent = 'Wait 3s';
+  timerEl.textContent = 'Wait 5s';
   timerEl.style.background = 'var(--red)';
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
-  var n = 3;
+  var n = 5;
   clearInterval(_dlAdTimer);
   _dlAdTimer = setInterval(function() {
     n--;
@@ -3322,10 +3234,8 @@ function runExifStrip() {
   var ctx = cvs.getContext('2d');
   ctx.drawImage(origImg, 0, 0);
   // Re-encoding removes all EXIF
-  var outMime = (curFile.type === 'image/png') ? 'image/png' : 'image/jpeg';
-  var outExt  = (curFile.type === 'image/png') ? '_clean.png' : '_clean.jpg';
   cvs.toBlob(function(blob) {
-    resBlob = blob; resName = curFile.name.replace(/\.[^.]+$/,'') + outExt;
+    resBlob = blob; resName = curFile.name.replace(/\.[^.]+$/,'') + '_clean.jpg';
     document.getElementById('resultTxt').textContent = '✅ All EXIF/metadata removed!';
     document.getElementById('resultStats').innerHTML =
       '<div class="rs"><span class="rsl">Original</span><span class="rsv">' + fmtB(curFile.size) + '</span></div>' +
@@ -3338,7 +3248,7 @@ function runExifStrip() {
     document.getElementById('resultImg').style.display = 'block';
     btn.disabled = false; btn.textContent = getBtnTxt();
     toast('✅ Metadata stripped!');
-  }, outMime, 0.95);
+  }, 'image/jpeg', 0.95);
 }
 
 // ── IMAGE TO BASE64 ──
@@ -3464,16 +3374,12 @@ var PAGES = {
       '<p style="font-size:13px;line-height:1.8;color:#4a4640;margin-bottom:14px">We do not collect your name, email, IP address, or any personally identifiable information. You do not need to create an account to use any of our tools.</p>' +
       '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">3. Analytics</h3>' +
       '<p style="font-size:13px;line-height:1.8;color:#4a4640;margin-bottom:14px">We may use Google Analytics to collect anonymous, aggregated usage statistics such as page views and tool usage counts. This data cannot identify individual users and is used only to improve our service.</p>' +
-      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">4. Advertising (Google AdSense)</h3>' +
-      '<p style="font-size:13px;line-height:1.8;color:var(--ink2);margin-bottom:8px">PixelForge uses Google AdSense to display advertisements. Google may use cookies and similar technologies to serve ads based on your prior visits to this or other websites.</p>' +
-      '<p style="font-size:13px;line-height:1.8;color:var(--ink2);margin-bottom:8px">Google\'s use of advertising cookies enables it and its partners to serve ads based on your visit to PixelForge and/or other sites on the Internet.</p>' +
-      '<p style="font-size:13px;line-height:1.8;color:var(--ink2);margin-bottom:14px">You may <strong>opt out of personalised advertising</strong> by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener" style="color:var(--red)">Google Ads Settings</a>. You can also opt out via <a href="https://www.aboutads.info" target="_blank" rel="noopener" style="color:var(--red)">aboutads.info</a>. For more information on how Google uses data, visit <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener" style="color:var(--red)">Google\'s Privacy &amp; Terms</a>.</p>' +
-      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">5. Other Third-Party Services</h3>' +
-      '<p style="font-size:13px;line-height:1.8;color:var(--ink2);margin-bottom:14px">We also use Google Fonts (for typography) and PDF.js (for PDF processing). These services have their own privacy policies.</p>'  +
-      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">6. Data Security</h3>' +
+      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">4. Third-Party Services</h3>' +
+      '<p style="font-size:13px;line-height:1.8;color:#4a4640;margin-bottom:14px">We use the following trusted third-party services: Google Fonts (for typography), Google AdSense (for advertising), PDF.js (for PDF processing). These services have their own privacy policies.</p>' +
+      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">5. Data Security</h3>' +
       '<p style="font-size:13px;line-height:1.8;color:#4a4640;margin-bottom:14px">Since all processing happens in your browser, your files never leave your device. We cannot access, view, or share any images you process on PixelForge.</p>' +
-      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">7. Suitable for All Ages</h3>' +
-      '<p style="font-size:13px;line-height:1.8;color:#4a4640;margin-bottom:14px">PixelForge is suitable for all ages. Since we collect no personal data and all processing happens locally in your browser, there is no privacy risk to any user.</p>' +      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">8. Changes to This Policy</h3>' +
+      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">6. Suitable for All Ages</h3>' +
+      '<p style="font-size:13px;line-height:1.8;color:#4a4640;margin-bottom:14px">PixelForge is suitable for all ages. Since we collect no personal data and all processing happens locally in your browser, there is no privacy risk to any user.</p>' +      '<h3 style="font-size:14px;font-weight:700;margin-bottom:7px">7. Changes to This Policy</h3>' +
       '<p style="font-size:13px;line-height:1.8;color:#4a4640">We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date. Continued use of PixelForge constitutes acceptance of the updated policy.</p>'
   },
   terms: {
@@ -3509,20 +3415,18 @@ function closePage() {
     </div>
     <div class="dlad-content">
       <div class="dlad-ad">
-        <!-- ADSENSE 468x60 下载弹窗横幅 — 批准后取消注释，填入 data-ad-client 和 data-ad-slot
-        <ins class="adsbygoogle"
-          style="display:inline-block;width:468px;height:60px"
-          data-ad-client="ca-pub-XXXXXXXXXX"
-          data-ad-slot="XXXXXXXXXX"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        -->
+        <!-- Replace with real AdSense ad unit after approval -->
+        <!-- <ins class="adsbygoogle" style="display:block;width:468px;height:60px" data-ad-client="ca-pub-XXXXX" data-ad-slot="XXXXX"></ins> -->
+        <span style="font-size:24px">📢</span>
+        <span>Google AdSense Ad — Connect your Publisher ID</span>
+        <span style="font-size:11px">468×60 Banner Ad</span>
       </div>
       <div class="dlad-msg">Your processed image is ready to download.<br>Please wait a moment while the ad loads.</div>
       <div style="display:flex;align-items:center;gap:10px">
         <button class="dlad-skip" id="dlAdBtn" onclick="doActualDownload()" disabled style="flex:1">
           ⬇ Download Now
         </button>
-        <span class="dlad-timer" id="dlAdTimer" style="flex-shrink:0">Wait 3s</span>
+        <span class="dlad-timer" id="dlAdTimer" style="flex-shrink:0">Wait 5s</span>
       </div>
       <button class="dlad-cancel" onclick="cancelDlAd()">Cancel</button>
     </div>
