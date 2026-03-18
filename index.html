@@ -440,8 +440,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
   </div>
   <div class="ws-layout">
     <div>
-      <div class="upbox" id="dropzone" role="button" aria-label="Upload image"
-        onclick="document.getElementById('fi').click()"
+      <label for="fi" class="upbox" id="dropzone" role="button" aria-label="Upload image"
         ondragover="event.preventDefault();this.classList.add('drag')"
         ondragleave="this.classList.remove('drag')"
         ondrop="handleDrop(event)">
@@ -449,8 +448,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:32px max
         <div class="up-h" data-i18n="up_drop">Drop your image here</div>
         <div class="up-s" data-i18n="up_or">or click to browse files</div>
         <div class="up-s" style="font-size:10px">JPG · PNG · WebP · AVIF · GIF · BMP — max 50MB</div>
-        <button class="up-btn" onclick="event.stopPropagation();document.getElementById('fi').click()" data-i18n="up_btn">Choose File</button>
-      </div>
+        <span class="up-btn" data-i18n="up_btn">Choose File</span>
+      </label>
       <input type="file" id="fi" accept="image/*" style="display:none" onchange="loadFile(this.files[0])">
 
       <div class="prev-card" id="prevCard">
